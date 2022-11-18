@@ -1,0 +1,15 @@
+# docker compose -f docker-compose-dev.yml --env-file ./env/prod.env up -d --build
+version: "3.9"
+
+services:
+    client:
+        env_file: ./env/prod.env
+        image: "${CONTAINER_REGISTRY}/client"
+        build:
+            context: ./modules/client
+            target: ${BUILD_TARGET}
+        container_name: ${CONTAINER_REGISTRY}-client
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ports:
+            - "${CLIENT_HOST_PORT}:${CLIENT_CONTAINER_PORT}"
