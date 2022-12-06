@@ -29,4 +29,4 @@ CMD ["npx", "http-server"]
 #               DEV
 # =====================================
 FROM install as dev
-CMD PORT=${CLIENT_CONTAINER_PORT} npm start --host 0.0.0.0
+CMD WATCHPACK_POLLING=true PORT=${CLIENT_CONTAINER_PORT} npm start --host 0.0.0.0
