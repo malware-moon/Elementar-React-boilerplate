@@ -29,4 +29,4 @@ CMD ["npx", "http-server"]
 #               DEV
 # =====================================
 FROM install as dev
-CMD PORT=${ADMIN_CONSOLE_CONTAINER_PORT} npm start --host 0.0.0.0
+CMD PORT=${CLIENT_CONTAINER_PORT} npm start --host 0.0.0.0
